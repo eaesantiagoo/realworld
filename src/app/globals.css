@@ -1,0 +1,1027 @@
+@import "tailwindcss";
+
+/* ============================================================
+   REAL WORLD — tokens
+   ============================================================ */
+
+:root {
+  --breu: #0b0b0c;
+  --grafite: #17171a;
+  --aco: #212125;
+  --aco-claro: #2e2e34;
+  --osso: #f2f0eb;
+  --cinza: #8a8a91;
+  --cinza-escuro: #55555c;
+  --sinal: #ffd21f;
+  --sinal-quente: #e8b800;
+  --marca: #d7262e;
+  --marca-escuro: #9e1920;
+
+  /* Secoes claras. O claro NAO e branco puro: e o mesmo osso do texto, para
+     a pagina clara pertencer a mesma paleta em vez de parecer outro site.
+     --papel e o branco exato do fundo da foto do kimono (#fefefe), para a
+     foto encostar na placa sem emenda visivel. */
+  --papel: #fefefe;
+  --tinta: #121214;
+  --tinta-media: #55555c;
+  --tinta-fraca: #76767e;
+  --linha-clara: rgba(11, 11, 12, 0.14);
+
+  /* escala fluida */
+  --t-hero: clamp(2.5rem, 10vw, 7rem);
+  --t-secao: clamp(2rem, 6vw, 4rem);
+  --t-sub: clamp(1.25rem, 3.6vw, 1.75rem);
+  --t-corpo: clamp(0.9375rem, 2.6vw, 1.0625rem);
+  --t-mono: clamp(0.625rem, 1.8vw, 0.6875rem);
+
+  --gutter: 20px;
+  --ease-rw: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  :root { --gutter: 40px; }
+}
+@media (min-width: 1024px) {
+  :root { --gutter: 56px; }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* o header fixo nao pode cobrir o alvo da ancora */
+  scroll-padding-top: 76px;
+  background: var(--breu);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--breu);
+  color: var(--osso);
+  font-family: var(--font-corpo), system-ui, sans-serif;
+  font-weight: 300;
+  font-size: var(--t-corpo);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--sinal); color: var(--breu); }
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+img, video, svg { display: block; max-width: 100%; }
+
+:focus-visible {
+  outline: 2px solid var(--sinal);
+  outline-offset: 3px;
+}
+
+/* ---------- tipografia ---------- */
+
+.chivo {
+  font-family: var(--font-titulo), Impact, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.mono {
+  font-family: var(--font-mono-tec), ui-monospace, monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--t-mono);
+}
+
+/* Os diacriticos empilhados do vietnamita (ế, ộ, ữ, ỹ) sobem acima da
+   altura de caixa latina. Com line-height 0.92 eles encostam na linha de
+   cima. Em vi afrouxamos a entrelinha dos titulos. */
+:lang(vi) .lh-tight { line-height: 1.04; }
+:lang(vi) .lh-secao { line-height: 1.1; }
+
+.lh-tight { line-height: 0.92; }
+.lh-secao { line-height: 1; }
+
+/* quebra segura para titulos longos em vietnamita */
+.chivo, .titulo-secao, .titulo-hero { overflow-wrap: break-word; }
+
+/* ---------- layout ---------- */
+
+.wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.secao {
+  padding-block: clamp(80px, 12vw, 130px);
+}
+
+.bg-breu { background: var(--breu); }
+.bg-grafite { background: var(--grafite); }
+
+/* ---------- secoes claras ----------
+   A inversao e por bloco inteiro, com corte duro: preto, corta, osso, corta.
+   Nada de degrade entre uma e outra. */
+.bg-claro {
+  background: var(--osso);
+  color: var(--tinta);
+}
+.bg-claro .rw-titulo-secao,
+.bg-claro .rw-gear-titulo { color: var(--tinta); }
+.bg-claro .rw-texto-abertura,
+.bg-claro .rw-priv-texto,
+.bg-claro .rw-sobre-p,
+.bg-claro .rw-gear-texto { color: var(--tinta-media); }
+.bg-claro .rw-priv-ponto { color: var(--tinta); }
+.bg-claro .mono { color: var(--tinta-fraca); }
+.bg-claro .rw-social-link { color: var(--tinta-media); }
+.bg-claro .rw-social-link:hover { color: var(--marca); }
+/* O amarelo some sobre o osso. Nas secoes claras os icones de apoio viram
+   breu (CSS vence o atributo stroke do SVG). */
+.bg-claro .rw-priv-ponto svg { stroke: var(--breu); }
+.bg-claro .rw-lib-card { background: var(--papel); border-color: var(--linha-clara); }
+.bg-claro figcaption { color: var(--tinta-fraca); }
+
+/* O CTA inverte junto: no claro ele e breu solido, nao amarelo — o amarelo
+   chapado continua exclusivo da secao de agendamento. */
+.bg-claro .btn-sinal {
+  background: var(--breu);
+  color: var(--osso);
+}
+.bg-claro .btn-sinal:hover { background: #000; }
+.bg-claro .btn-linha {
+  border-color: rgba(11, 11, 12, 0.28);
+  color: var(--tinta);
+}
+.bg-claro .btn-linha:hover { border-color: var(--breu); background: var(--breu); color: var(--osso); }
+
+/* ---------- botoes ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 17px 36px;
+  border-radius: 2px;
+  font-family: var(--font-corpo), sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease,
+    transform 90ms ease;
+}
+.btn:active { transform: scale(0.98); }
+
+.btn-sinal { background: var(--sinal); color: var(--breu); }
+.btn-sinal:hover { background: var(--sinal-quente); }
+
+.btn-linha {
+  border: 1px solid var(--cinza-escuro);
+  color: var(--osso);
+  background: transparent;
+}
+.btn-linha:hover { border-color: var(--sinal); color: var(--sinal); }
+
+.btn-breu { background: var(--breu); color: var(--sinal); padding: 20px 46px; font-size: 14px; letter-spacing: 0.12em; }
+.btn-breu:hover { background: #000; }
+
+/* ---------- reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ============================================================
+   SECOES — desenhadas primeiro em 390px.
+   Cada bloco comeca no mobile; o desktop vem nos media queries.
+   ============================================================ */
+
+/* ---------------- HEADER ---------------- */
+
+.rw-header-barra { --h-base: 58px; --h-ativo: 58px; }
+
+.rw-marca { font-size: 16px; }
+.rw-header-barra > a:first-child { padding-block: 10px; }
+
+.rw-nav-desktop { display: none; }
+.rw-book-desktop { display: none; }
+
+.rw-menu-botao {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+}
+
+@media (min-width: 1024px) {
+  .rw-header-barra { --h-base: 72px; --h-ativo: 58px; }
+  .rw-marca { font-size: 18px; }
+  .rw-menu-botao { display: none; }
+  .rw-book-desktop { display: inline-flex; }
+
+  .rw-nav-desktop {
+    display: flex;
+    gap: 34px;
+  }
+  .rw-nav-link {
+    position: relative;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--cinza);
+    padding-block: 6px;
+    transition: color 200ms ease;
+  }
+  .rw-nav-link:hover { color: var(--osso); }
+  /* fita amarela de 2px crescendo por baixo */
+  .rw-nav-fita {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--sinal);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 240ms var(--ease-rw);
+  }
+  .rw-nav-link:hover .rw-nav-fita { transform: scaleX(1); }
+}
+
+/* ---------------- HERO ---------------- */
+
+.rw-hero {
+  position: relative;
+  min-height: 88svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 92px;
+  overflow: hidden;
+  background: var(--breu);
+}
+
+.rw-hero-foto { position: absolute; inset: 0; z-index: 0; }
+
+.rw-hero-veu {
+  position: absolute;
+  inset: 0;
+  /* No mobile o topo fica mais limpo (0.28) para o rosto e a luz de recorte
+     aparecerem de verdade; o escurecimento forte so entra onde o texto
+     comeca. */
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 11, 12, 0.28) 0%,
+    rgba(11, 11, 12, 0.46) 34%,
+    rgba(11, 11, 12, 0.88) 62%,
+    rgba(11, 11, 12, 0.97) 100%
+  );
+}
+
+/* no mobile a marcacao sobre a mao sairia em cima do texto: some */
+.rw-hero-marca { display: none; }
+
+.rw-hero-grade {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 34px;
+}
+
+.rw-hero-titulo {
+  font-size: var(--t-hero);
+  margin: 18px 0 26px;
+}
+
+.rw-hero-sub {
+  color: var(--cinza);
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 460px;
+  margin: 26px 0 0;
+}
+
+.rw-hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+.rw-hero-ctas .btn { width: 100%; }
+
+.rw-hero-nota {
+  color: var(--cinza-escuro);
+  font-weight: 300;
+  font-size: 13px;
+  margin: 18px 0 0;
+}
+
+/* ---- faixa tecnica no pe do hero ---- */
+
+.rw-hero-faixa {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--aco-claro);
+  background: rgba(11, 11, 12, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.rw-hero-faixa-grade {
+  position: relative;
+  display: flex;
+  gap: 26px;
+  padding-block: 16px;
+}
+
+.rw-hero-faixa-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
+}
+
+.rw-hero-faixa-valor {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--osso);
+  line-height: 1.3;
+}
+
+.rw-hero-scroll {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 2px;
+  height: 24px;
+  background: var(--sinal);
+  translate: 0 -50%;
+  animation: rw-pulso 2.6s ease-in-out infinite;
+  display: none;
+}
+
+@keyframes rw-pulso {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+
+@media (min-width: 1024px) {
+  .rw-hero {
+    min-height: 92svh;
+    padding-top: 72px;
+  }
+
+  /* A foto SANGRA pela direita e vai ate a faixa do pe, sem moldura. Maior
+     que antes (52%): e o ativo mais forte do material, nao ha motivo para
+     espremer. */
+  .rw-hero-foto {
+    inset: auto 0 0 auto;
+    top: 0;
+    width: 52%;
+  }
+
+  /* CORTE DURO: a foto encosta no breu numa linha reta, com so 18% de
+     encosto para o titulo atravessar sem brigar com a imagem. Nada de
+     degrade longo diluindo a borda. */
+  .rw-hero-veu {
+    background: linear-gradient(
+      to right,
+      var(--breu) 0%,
+      rgba(11, 11, 12, 0.92) 6%,
+      rgba(11, 11, 12, 0) 18%
+    );
+  }
+
+  /* Com a foto quadrada (800x800) em object-fit cover e object-position
+     58%/34%, as maos enfaixadas caem em 53% / 89% da caixa renderizada —
+     posicao aferida no render, nao estimada.
+     O rotulo fica EMPILHADO sob o circulo: a esquerda dele cairia sobre a
+     pele, onde vermelho de 11px nao se le. */
+  .rw-hero-marca {
+    display: flex;
+    /* rotulo ACIMA do circulo: abaixo ele bateria na faixa tecnica do pe */
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    left: 52.8%;
+    top: 84%;
+    translate: -50% -50%;
+    z-index: 2;
+    white-space: nowrap;
+  }
+
+  .rw-hero-conteudo { width: 55%; }
+
+  /* O titulo sai da coluna de texto e avanca sobre o lado escuro da foto —
+     sobreposicao proposital. O teto de 9vw garante que "THAT ACTUALLY"
+     (7,75x o font-size) nunca quebre em duas linhas. */
+  .rw-hero-titulo {
+    /* O teto de 9vw garante que a linha mais longa ("THAT ACTUALLY" mede
+       7,75x o font-size em Chivo 900) caiba na largura da tela sem quebrar. */
+    font-size: min(var(--t-hero), 9vw);
+    position: relative;
+    z-index: 1;
+  }
+  /* As tres linhas do hero sao fixas por design: nenhuma pode quebrar em
+     duas. Elas passam da coluna de 55% e avancam sobre a borda escura da
+     foto — sobreposicao proposital, nao estouro. */
+  .rw-hero-titulo > span { white-space: nowrap; }
+  .rw-hero-ctas { flex-direction: row; }
+  .rw-hero-ctas .btn { width: auto; }
+  .rw-hero-grade { align-items: center; padding-bottom: 0; }
+  .rw-hero-faixa-grade { gap: 56px; padding-block: 20px; }
+  .rw-hero-faixa-item { flex: 0 0 auto; }
+  .rw-hero-scroll { display: block; }
+}
+
+/* ---------------- titulos de secao ---------------- */
+
+.rw-titulo-secao {
+  font-size: var(--t-secao);
+  color: var(--osso);
+  margin: 16px 0 26px;
+}
+
+.rw-texto-abertura {
+  color: var(--cinza);
+  font-weight: 300;
+  max-width: 620px;
+  margin: 28px 0 0;
+  line-height: 1.75;
+}
+
+/* ---------------- DISCIPLINAS ---------------- */
+
+.rw-disc-lista {
+  list-style: none;
+  margin: 48px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--aco-claro);
+}
+
+.rw-disc-li { border-bottom: 1px solid var(--aco-claro); }
+
+.rw-disc-linha {
+  display: grid;
+  grid-template-columns: 46px 1fr 28px;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 12px 22px 0;
+  margin-inline: -12px;
+  padding-left: 12px;
+  transition: background 240ms ease;
+}
+
+.rw-disc-num {
+  font-size: 24px;
+  color: var(--cinza-escuro);
+  transition: color 240ms ease;
+  align-self: start;
+  line-height: 1;
+  padding-top: 3px;
+}
+
+.rw-disc-nome {
+  font-size: var(--t-sub);
+  color: var(--osso);
+  margin: 0 0 7px;
+  line-height: 1.12;
+}
+
+.rw-disc-desc {
+  color: var(--cinza);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 54ch;
+}
+
+.rw-disc-fim {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: end;
+  align-self: start;
+  padding-top: 2px;
+}
+
+.rw-disc-seta {
+  display: none;
+  opacity: 0;
+  transform: translate(-6px, 6px);
+  transition: opacity 240ms ease, transform 240ms var(--ease-rw);
+}
+
+.rw-disc-icone { transition: stroke 240ms ease; stroke: var(--cinza-escuro); }
+
+@media (hover: hover) {
+  .rw-disc-li:hover .rw-disc-linha { background: var(--aco); }
+  .rw-disc-li:hover .rw-disc-num { color: var(--sinal); }
+  .rw-disc-li:hover .rw-disc-icone { stroke: var(--osso); }
+  .rw-disc-li:hover .rw-disc-seta { opacity: 1; transform: none; }
+}
+
+@media (min-width: 1024px) {
+  /* No desktop o nome e a descricao vao LADO A LADO, nao empilhados: com a
+     descricao embaixo sobrava meia largura de tela vazia a direita de cada
+     linha. Assim a linha ocupa a largura toda e le como indice tecnico. */
+  .rw-disc-linha {
+    grid-template-columns: 96px minmax(200px, 0.9fr) minmax(0, 1.4fr) auto;
+    gap: 32px;
+    padding: 30px 24px;
+    margin-inline: -24px;
+    align-items: center;
+  }
+  .rw-disc-num { font-size: 28px; align-self: center; padding-top: 0; }
+  .rw-disc-texto { display: contents; }
+  .rw-disc-nome { margin: 0; }
+  .rw-disc-desc { font-size: 15px; max-width: 62ch; }
+  .rw-disc-fim { align-self: center; padding-top: 0; gap: 22px; }
+  .rw-disc-seta { display: block; }
+}
+
+/* ---------------- AULAS PARTICULARES ---------------- */
+
+.rw-priv { position: relative; overflow: hidden; }
+
+.rw-priv-seta {
+  position: absolute;
+  right: -90px;
+  top: 30%;
+  z-index: 0;
+}
+
+.rw-priv-grade { position: relative; z-index: 1; }
+
+.rw-priv-texto {
+  color: var(--cinza);
+  font-weight: 300;
+  line-height: 1.8;
+  margin: 28px 0 0;
+  max-width: 56ch;
+}
+
+.rw-priv-pontos {
+  list-style: none;
+  margin: 34px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rw-priv-ponto {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--osso);
+  font-weight: 300;
+  font-size: 15px;
+}
+.rw-priv-ponto svg { flex-shrink: 0; }
+
+.rw-priv-cta { margin-top: 38px; width: 100%; }
+
+.rw-priv-video { margin-top: 52px; }
+
+@media (min-width: 768px) {
+  .rw-priv-cta { width: auto; }
+}
+
+@media (min-width: 1024px) {
+  .rw-priv-grade {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .rw-priv-video { margin-top: 0; }
+  /* acima e a esquerda do CTA, apontando para baixo nele */
+  .rw-priv-seta { right: auto; left: 2%; top: auto; bottom: 4%; }
+}
+
+/* ---------------- BIBLIOTECA TECNICA ---------------- */
+
+/* Nada de scroll horizontal: no celular as oito tecnicas viram uma grade de
+   duas colunas. Carrossel lateral esconde metade do conteudo, obriga um gesto
+   que ninguem adivinha e briga com a rolagem vertical da pagina. */
+.rw-lib-trilho {
+  margin-top: 46px;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.rw-lib-grade {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.rw-lib-item { min-width: 0; }
+
+.rw-lib-card {
+  display: block;
+  height: 100%;
+  background: var(--aco);
+  border: 1px solid var(--aco-claro);
+  border-radius: 2px;
+  padding: 18px 16px;
+  transition: border-color 240ms ease, transform 240ms var(--ease-rw);
+}
+.rw-lib-card:hover { border-color: var(--sinal); transform: translateY(-3px); }
+
+.rw-lib-nome {
+  font-size: 15px;
+  color: var(--osso);
+  margin: 12px 0 7px;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.rw-lib-cat {
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--cinza);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.rw-lib-alcance {
+  list-style: none;
+  margin: 56px 0 0;
+  padding: 30px 0 0;
+  border-top: 1px solid var(--aco-claro);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.rw-lib-stat-num {
+  display: block;
+  font-size: 40px;
+  color: var(--sinal);
+  line-height: 1;
+  margin-bottom: 9px;
+}
+
+@media (min-width: 560px) {
+  .rw-lib-card { padding: 22px 18px; }
+  .rw-lib-nome { font-size: 16px; }
+}
+
+@media (min-width: 768px) {
+  .rw-lib-grade { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+}
+
+@media (min-width: 1024px) {
+  .rw-lib-grade { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .rw-lib-card { padding: 24px 20px; }
+  .rw-lib-nome { font-size: 17px; }
+  .rw-lib-alcance { justify-content: flex-start; gap: 92px; }
+}
+
+/* ---------------- SOBRE ---------------- */
+
+/* A placa usa o branco EXATO do fundo da foto (#fefefe), entao a foto
+   dissolve nela sem emenda: o fundo branco vira escolha de enquadramento,
+   nao um problema a esconder. */
+.rw-sobre-placa {
+  position: relative;
+  background: var(--papel);
+  border-bottom: 6px solid var(--sinal);
+  max-width: 340px;
+  margin: 0 auto 44px;
+  overflow: hidden;
+}
+
+.rw-sobre-placa-pe {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 16px 16px;
+}
+
+/* O circulo cai sobre o no da faixa — x 46% / y 88% da imagem recortada,
+   medido nela, nao estimado. O rotulo vive no pe da placa. */
+.rw-sobre-circulo {
+  position: absolute;
+  left: 46%;
+  top: 76%;
+  translate: -50% -50%;
+  z-index: 2;
+}
+
+.rw-sobre-p {
+  color: var(--cinza);
+  font-weight: 300;
+  line-height: 1.8;
+  margin: 22px 0 0;
+  max-width: 58ch;
+}
+
+.rw-sobre-social {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rw-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--cinza);
+  font-size: 14px;
+  /* o texto tem 22px de altura; o padding leva a area tocavel a 44px */
+  padding-block: 11px;
+  transition: color 200ms ease;
+}
+.rw-social-link:hover { color: var(--sinal); }
+
+@media (min-width: 1024px) {
+  .rw-sobre-grade {
+    display: grid;
+    grid-template-columns: 42fr 58fr;
+    gap: 76px;
+    align-items: center;
+  }
+  .rw-sobre-placa { max-width: none; margin: 0; }
+  .rw-sobre-social { flex-direction: row; gap: 34px; }
+}
+
+/* ---------------- EQUIPAMENTO ---------------- */
+
+/* secao curta de proposito: e valor adicional, nao protagonista */
+.rw-gear { padding-block: clamp(64px, 8vw, 92px); }
+
+.rw-gear-titulo {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  color: var(--osso);
+  margin: 16px 0 24px;
+}
+
+.rw-gear-texto {
+  color: var(--cinza);
+  font-weight: 300;
+  font-size: 15px;
+  max-width: 520px;
+  margin: 26px 0 0;
+  line-height: 1.7;
+}
+
+.rw-gear-cta-topo { margin-top: 30px; }
+.rw-gear-cta-topo .btn { width: 100%; }
+
+.rw-gear-cats {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.rw-gear-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+  background: var(--aco);
+  border: 1px solid var(--aco-claro);
+  border-radius: 2px;
+  padding: 20px;
+  transition: border-color 240ms ease, transform 240ms var(--ease-rw);
+}
+.rw-gear-card:hover { border-color: var(--sinal); transform: translateY(-3px); }
+.rw-gear-card > svg { flex-shrink: 0; }
+
+.rw-gear-card-texto { flex: 1; min-width: 0; }
+
+.rw-gear-cat-nome {
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--osso);
+  margin: 0 0 6px;
+}
+
+.rw-gear-cat-desc {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--cinza);
+  margin: 0;
+}
+
+/* O rotulo de saida deixa explicito que o card leva para fora do site —
+   e uma recomendacao de afiliado, nao uma loja propria. */
+.rw-gear-card-ir {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  color: var(--sinal);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 240ms ease, transform 240ms var(--ease-rw);
+}
+.rw-gear-card:hover .rw-gear-card-ir { opacity: 1; transform: none; }
+
+.rw-gear-aviso {
+  margin: 30px 0 0;
+  font-weight: 300;
+  font-size: 12px;
+  color: var(--cinza-escuro);
+  max-width: 54ch;
+}
+
+@media (max-width: 1023px) {
+  /* sem hover em toque: o rotulo de saida fica sempre visivel */
+  .rw-gear-card-ir { opacity: 1; transform: none; }
+  .rw-gear-card-ir .mono { display: none; }
+}
+
+@media (min-width: 768px) {
+  .rw-gear-cats { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .rw-gear-cta-topo .btn { width: auto; }
+}
+
+@media (min-width: 1024px) {
+  .rw-gear-topo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  .rw-gear-cta-topo { margin-top: 0; flex-shrink: 0; }
+  .rw-gear-cats { grid-template-columns: repeat(4, 1fr); }
+  .rw-gear-card { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .rw-gear-card-texto { flex: 1; }
+}
+
+/* ---------------- AGENDAMENTO (unico bloco amarelo) ---------------- */
+
+.rw-agenda {
+  position: relative;
+  overflow: hidden;
+  background: var(--sinal);
+  color: var(--breu);
+  padding: clamp(80px, 12vw, 130px) 24px;
+  text-align: center;
+}
+
+.rw-agenda-marca {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  z-index: 0;
+  max-width: 94vw;
+  max-height: 94vw;
+}
+
+.rw-agenda-conteudo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rw-agenda-titulo {
+  font-size: var(--t-secao);
+  line-height: 0.95;
+  color: var(--breu);
+  margin: 18px 0 24px;
+  max-width: 16ch;
+}
+
+@media (min-width: 900px) {
+  /* "STARTS WITH A MESSAGE." tem de caber em UMA linha: sao duas linhas
+     por design, nao tres. */
+  .rw-agenda-titulo { max-width: 26ch; }
+}
+:lang(vi) .rw-agenda-titulo { line-height: 1.08; }
+
+.rw-agenda-texto {
+  font-weight: 400;
+  color: rgba(11, 11, 12, 0.72);
+  max-width: 460px;
+  margin: 0 0 36px;
+  line-height: 1.7;
+}
+
+.rw-agenda-cta { width: 100%; }
+
+.rw-agenda-email {
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(11, 11, 12, 0.6);
+  margin-top: 10px;
+  display: inline-block;
+  padding-block: 12px;
+  transition: color 200ms ease;
+}
+.rw-agenda-email:hover { color: var(--breu); }
+
+@media (min-width: 768px) {
+  .rw-agenda-cta { width: auto; }
+}
+
+/* ---------------- RODAPE ---------------- */
+
+.rw-rodape {
+  background: #070708;
+  border-top: 1px solid rgba(255, 210, 31, 0.15);
+  padding: 48px 0 calc(32px + env(safe-area-inset-bottom));
+}
+
+.rw-rodape-grade {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  text-align: center;
+  align-items: center;
+}
+
+.rw-rodape-marca { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+.rw-rodape-local {
+  font-weight: 300;
+  font-size: 11px;
+  color: var(--cinza-escuro);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.rw-rodape-nav ul,
+.rw-rodape-contato ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* links do rodape: 13px de texto dentro de 44px de area tocavel */
+.rw-rodape-nav a,
+.rw-rodape-contato a {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--cinza);
+  padding-block: 13px;
+  transition: color 200ms ease;
+}
+.rw-rodape-nav a:hover,
+.rw-rodape-contato a:hover { color: var(--sinal); }
+
+.rw-rodape-copy {
+  font-weight: 300;
+  font-size: 11px;
+  color: var(--cinza-escuro);
+  text-align: center;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .rw-rodape-grade {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 40px;
+    text-align: left;
+    align-items: start;
+  }
+  .rw-rodape-marca { align-items: flex-start; }
+}

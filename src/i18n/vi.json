@@ -1,0 +1,183 @@
+{
+  "nav": {
+    "training": "Tập luyện",
+    "technique": "Kỹ thuật",
+    "about": "Giới thiệu",
+    "gear": "Trang bị",
+    "book": "Đặt buổi tập",
+    "menu": "Menu",
+    "close": "Đóng"
+  },
+  "hero": {
+    "label": "— TP. Hồ Chí Minh · Việt Nam",
+    "l1": "Kỹ thuật",
+    "l2": "Thực sự",
+    "l3": "Hiệu quả.",
+    "sub": "Đai đen BJJ dạy MMA, boxing, kickboxing và tự vệ tại TP. Hồ Chí Minh. Buổi tập riêng, một kèm một, xây dựng đúng theo nhu cầu của bạn.",
+    "cta1": "Đặt buổi tập",
+    "cta2": "Xem kỹ thuật",
+    "note": "Từ người mới đến vận động viên · Mọi trình độ",
+    "mark": "— Băng quấn tay",
+    "alt": "Võ sĩ quấn băng tay trong phòng chụp tối",
+    "strip": [
+      {
+        "k": "Địa điểm",
+        "v": "TP. Hồ Chí Minh"
+      },
+      {
+        "k": "Bộ môn",
+        "v": "Năm"
+      },
+      {
+        "k": "Phân tích",
+        "v": "Miễn phí, hằng tuần"
+      }
+    ]
+  },
+  "disciplines": {
+    "label": "— Tôi dạy gì",
+    "title": "Năm bộ môn. Một cách tiếp cận.",
+    "intro": "Mọi kỹ thuật đều được dạy kèm một câu hỏi: nó có trụ được khi đối thủ thật sự kháng cự không? Bộ lọc đó quyết định điều gì được đưa vào buổi tập và điều gì bị loại ra.",
+    "items": [
+      {
+        "name": "Tự vệ",
+        "desc": "Kỹ năng thực tế cho tình huống đời thật. Những gì hiệu quả khi không có luật và không có trọng tài."
+      },
+      {
+        "name": "Boxing",
+        "desc": "Nền tảng, tổ hợp đòn và tư duy thi đấu. Đọc khoảng cách trước khi ra đòn."
+      },
+      {
+        "name": "Kickboxing",
+        "desc": "Sức mạnh, kỹ thuật và thể lực. Những cú đá trúng đích và những cú đá không bị bắt."
+      },
+      {
+        "name": "Jiu-jitsu",
+        "desc": "Kiểm soát, đòn siết khóa và thế trận mặt đất. Gi và no-gi."
+      },
+      {
+        "name": "Huấn luyện riêng",
+        "desc": "Một kèm một, xây dựng quanh mục tiêu của bạn. Từ người mới đến vận động viên."
+      }
+    ]
+  },
+  "private": {
+    "label": "— Tập luyện tại TP. Hồ Chí Minh",
+    "title": "Buổi tập riêng.",
+    "body": "Các buổi tập là một kèm một, xây dựng dựa trên trình độ hiện tại và mục tiêu của bạn. Không có giáo trình cố định, không có lớp nào bạn phải chạy theo. Nếu bạn chưa từng tập, chúng ta bắt đầu từ con số không. Nếu bạn thi đấu, chúng ta xử lý những gì đang hỏng.",
+    "points": [
+      "Mọi trình độ — từ người mới đến vận động viên",
+      "Sắp xếp theo lịch rảnh của bạn",
+      "Tập trung vào mục tiêu cụ thể của bạn",
+      "TP. Hồ Chí Minh"
+    ],
+    "cta": "Đặt buổi tập",
+    "caption": "Buổi tập · TP. Hồ Chí Minh",
+    "play": "Phát đoạn clip tập luyện",
+    "mailSubject": "Buổi tập riêng — Real World",
+    "mailBody": "Chào bạn, tôi muốn đặt một buổi tập riêng. Đây là điều tôi muốn tập:"
+  },
+  "library": {
+    "label": "— Học miễn phí",
+    "title": "Phân tích kỹ thuật.",
+    "body": "Mỗi tuần tôi phân tích một kỹ thuật và chỉ ra vì sao nó thất bại nhiều hơn mức đáng lẽ. Miễn phí, trên Instagram và TikTok.",
+    "unit": "Kỹ thuật",
+    "items": [
+      {
+        "name": "Uppercut correction",
+        "cat": "Boxing"
+      },
+      {
+        "name": "Darce choke",
+        "cat": "Jiu-jitsu"
+      },
+      {
+        "name": "Wall mount escape",
+        "cat": "Tự vệ"
+      },
+      {
+        "name": "Guillotine choke",
+        "cat": "Jiu-jitsu"
+      },
+      {
+        "name": "Back sweep",
+        "cat": "Jiu-jitsu"
+      },
+      {
+        "name": "Arm drag",
+        "cat": "Wrestling"
+      },
+      {
+        "name": "Osoto gari",
+        "cat": "Đòn quật"
+      },
+      {
+        "name": "Double leg",
+        "cat": "Đòn quật"
+      }
+    ],
+    "stats": [
+      {
+        "value": "10M+",
+        "label": "Lượt xem"
+      },
+      {
+        "value": "23K",
+        "label": "Người theo dõi"
+      },
+      {
+        "value": "200+",
+        "label": "Bài phân tích"
+      }
+    ]
+  },
+  "about": {
+    "label": "— Ai đang dạy",
+    "title": "Real World",
+    "mark": "— Đai đen",
+    "p1": "Đai đen BJJ. Boxing, kickboxing và tự vệ. Nhiều năm tập luyện bắt đầu từ rất lâu trước khi tất cả những điều này xuất hiện trên màn hình điện thoại.",
+    "p2": "Chuyển đến TP. Hồ Chí Minh năm 2026 cùng gia đình, và hiện dạy tại đây — buổi tập riêng và lớp tại câu lạc bộ.",
+    "p3": "Cách tiếp cận vẫn như trong mọi video: bóc kỹ thuật xuống đến chi tiết quyết định. Phần lớn mọi thứ hỏng vì một lý do rất nhỏ. Tìm ra nó, sửa nó.",
+    "alt": "Huấn luyện viên mặc gi trắng với đai đen",
+    "plate": "Real World Grappling"
+  },
+  "gear": {
+    "label": "— Tôi dùng gì",
+    "title": "Trang bị bền bỉ.",
+    "body": "Găng, giáp ống chân, băng quấn tay và dụng cụ luyện lực nắm mà tôi thực sự dùng. Link affiliate — giá với bạn không đổi.",
+    "cats": [
+      {
+        "name": "Găng tay",
+        "desc": "Găng boxing và MMA"
+      },
+      {
+        "name": "Giáp ống chân & bảo hộ",
+        "desc": "Giáp ống chân và bảo vệ đầu"
+      },
+      {
+        "name": "Băng quấn & lực nắm",
+        "desc": "Băng quấn tay và luyện lực nắm"
+      },
+      {
+        "name": "Thể lực",
+        "desc": "Tạ ấm và dụng cụ thể lực"
+      }
+    ],
+    "cta": "Xem danh sách đầy đủ",
+    "shop": "Xem trên Amazon",
+    "disclosure": "Link affiliate. Giá với bạn không đổi — tôi nhận một khoản hoa hồng nhỏ."
+  },
+  "booking": {
+    "label": "— TP. Hồ Chí Minh",
+    "l1": "Buổi tập đầu tiên",
+    "l2": "Bắt đầu bằng một tin nhắn.",
+    "body": "Hãy cho tôi biết bạn muốn tập gì. Phần còn lại chúng ta tính sau.",
+    "cta": "Đặt buổi tập"
+  },
+  "footer": {
+    "location": "TP. Hồ Chí Minh · Việt Nam",
+    "navTitle": "— Mục lục",
+    "contactTitle": "— Liên hệ",
+    "copyright": "© 2026 Real World"
+  }
+}

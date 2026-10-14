@@ -1,0 +1,183 @@
+{
+  "nav": {
+    "training": "Training",
+    "technique": "Technique",
+    "about": "About",
+    "gear": "Gear",
+    "book": "Book a session",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "hero": {
+    "label": "— Ho Chi Minh City · Vietnam",
+    "l1": "Technique",
+    "l2": "That actually",
+    "l3": "Works.",
+    "sub": "BJJ black belt teaching MMA, boxing, kickboxing and self-defense in Ho Chi Minh City. Private sessions, one on one, built around what you actually need.",
+    "cta1": "Book a session",
+    "cta2": "Watch technique",
+    "note": "Beginner to competitor · All levels",
+    "mark": "— Hand wraps",
+    "alt": "Fighter wrapping his hands in a dark studio",
+    "strip": [
+      {
+        "k": "Location",
+        "v": "Ho Chi Minh City"
+      },
+      {
+        "k": "Disciplines",
+        "v": "Five"
+      },
+      {
+        "k": "Breakdowns",
+        "v": "Free, weekly"
+      }
+    ]
+  },
+  "disciplines": {
+    "label": "— What I teach",
+    "title": "Five disciplines. One approach.",
+    "intro": "Every technique gets taught with the same question behind it: does this hold up when someone is actually resisting? That filter decides what makes it into a session and what gets left out.",
+    "items": [
+      {
+        "name": "Self defense",
+        "desc": "Practical skills for real-world situations. What works when there are no rules and no referee."
+      },
+      {
+        "name": "Boxing",
+        "desc": "Fundamentals, combinations and fight IQ. Reading distance before throwing."
+      },
+      {
+        "name": "Kickboxing",
+        "desc": "Power, technique and conditioning. Kicks that land and kicks that don't get caught."
+      },
+      {
+        "name": "Jiu-jitsu",
+        "desc": "Control, submissions and ground game. Gi and no-gi."
+      },
+      {
+        "name": "Private coaching",
+        "desc": "One on one, built around your goals. Beginner to competitor."
+      }
+    ]
+  },
+  "private": {
+    "label": "— Training in Ho Chi Minh",
+    "title": "Private sessions.",
+    "body": "Sessions are one on one, built around where you are now and where you want to get. No fixed curriculum, no class you have to keep up with. If you've never trained, we start from zero. If you compete, we work on what's failing.",
+    "points": [
+      "All levels — beginner to competitor",
+      "Scheduled around your availability",
+      "Focused on your specific goals",
+      "Ho Chi Minh City"
+    ],
+    "cta": "Book a session",
+    "caption": "Training session · Ho Chi Minh City",
+    "play": "Play the training clip",
+    "mailSubject": "Private session — Real World",
+    "mailBody": "Hi, I'd like to book a private session. Here's what I want to work on:"
+  },
+  "library": {
+    "label": "— Free to learn",
+    "title": "Technique breakdowns.",
+    "body": "Every week I break down a technique and show why it fails more often than it should. Free, on Instagram and TikTok.",
+    "unit": "Technique",
+    "items": [
+      {
+        "name": "Uppercut correction",
+        "cat": "Boxing"
+      },
+      {
+        "name": "Darce choke",
+        "cat": "Jiu-jitsu"
+      },
+      {
+        "name": "Wall mount escape",
+        "cat": "Self defense"
+      },
+      {
+        "name": "Guillotine choke",
+        "cat": "Jiu-jitsu"
+      },
+      {
+        "name": "Back sweep",
+        "cat": "Jiu-jitsu"
+      },
+      {
+        "name": "Arm drag",
+        "cat": "Wrestling"
+      },
+      {
+        "name": "Osoto gari",
+        "cat": "Takedowns"
+      },
+      {
+        "name": "Double leg",
+        "cat": "Takedowns"
+      }
+    ],
+    "stats": [
+      {
+        "value": "10M+",
+        "label": "Views"
+      },
+      {
+        "value": "23K",
+        "label": "Followers"
+      },
+      {
+        "value": "200+",
+        "label": "Breakdowns"
+      }
+    ]
+  },
+  "about": {
+    "label": "— Who's teaching",
+    "title": "Real World",
+    "mark": "— Black belt",
+    "p1": "BJJ black belt. Boxing, kickboxing and self-defense. Years of training that started long before any of this ended up on a phone screen.",
+    "p2": "Moved to Ho Chi Minh City in 2026 with family, and now teaches here — private sessions and club classes.",
+    "p3": "The approach is the same one in every video: strip the technique down to the detail that decides it. Most things fail for one small reason. Find that, fix that.",
+    "alt": "Instructor in a white gi with a black belt",
+    "plate": "Real World Grappling"
+  },
+  "gear": {
+    "label": "— What I use",
+    "title": "Gear that holds up.",
+    "body": "Gloves, shin guards, wraps and grip equipment I actually train with. Affiliate links — same price for you.",
+    "cats": [
+      {
+        "name": "Gloves",
+        "desc": "Boxing and MMA gloves"
+      },
+      {
+        "name": "Shin guards & protection",
+        "desc": "Shin guards and head protection"
+      },
+      {
+        "name": "Wraps & grip",
+        "desc": "Hand wraps and grip training"
+      },
+      {
+        "name": "Conditioning",
+        "desc": "Kettlebells and conditioning"
+      }
+    ],
+    "cta": "See the full list",
+    "shop": "View on Amazon",
+    "disclosure": "Affiliate links. Same price for you — I get a small commission."
+  },
+  "booking": {
+    "label": "— Ho Chi Minh City",
+    "l1": "First session",
+    "l2": "Starts with a message.",
+    "body": "Tell me what you want to work on. We figure out the rest from there.",
+    "cta": "Book a session"
+  },
+  "footer": {
+    "location": "Ho Chi Minh City · Vietnam",
+    "navTitle": "— Sections",
+    "contactTitle": "— Contact",
+    "copyright": "© 2026 Real World"
+  }
+}
